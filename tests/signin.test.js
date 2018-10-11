@@ -1,26 +1,26 @@
-const data = require('./data');
+const data = require("../data");
 
 const loginUser = {
-  email: 'assemble2etesting@gmail.com',
-  password: '123456'
+  email: "assemble2etesting@gmail.com",
+  password: "123456"
 };
 
-describe('Assembl signin', () => {
+describe("Assembl signin", () => {
   beforeEach(async () => {
     await page.goto(`${data.url}/login`);
   });
 
-  test('I can sign in assembl', async () => {
-    await page.waitForSelector('.login-container');
-    await page.click('input[name=identifier]');
-    await page.type('input[name=identifier]', loginUser.email);
-    await page.click('input[name=password]');
-    await page.type('input[name=password]', loginUser.password);
+  test("I can sign in assembl", async () => {
+    await page.waitForSelector(".login-container");
+    await page.click("input[name=identifier]");
+    await page.type("input[name=identifier]", loginUser.email);
+    await page.click("input[name=password]");
+    await page.type("input[name=password]", loginUser.password);
     await page.click("button[name='login']");
     // check if the profile menu is visible
-    await page.waitForSelector('.user-account');
+    await page.waitForSelector(".user-account");
     const profileMenu = await page.$eval(
-      '#user-dropdown',
+      "#user-dropdown",
       el => (el ? true : false)
     );
     expect(profileMenu).toBe(true);
