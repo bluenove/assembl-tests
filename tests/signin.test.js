@@ -18,6 +18,7 @@ const signIn = async () => {
 
 describe("Assembl signin", () => {
   beforeEach(async () => {
+    jest.setTimeout(100000);
     await page.goto(`${data.url}/login`);
   });
 

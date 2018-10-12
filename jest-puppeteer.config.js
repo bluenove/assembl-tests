@@ -1,8 +1,11 @@
 const isDebugging = () => {
   let launch = {
     headless: false,
-    devtools: true,
-    timeout: 0
+    devtools: false,
+    timeout: 0,
+    slowMo: 20,
+    args: ["--start-fullscreen"],
+    defaultViewport: null
   };
   return process.env.NODE_ENV === "debug" ? launch : {};
 };
