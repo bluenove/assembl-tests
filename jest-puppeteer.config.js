@@ -1,10 +1,10 @@
 const isDebugging = () => {
   let launch = {
     headless: false,
-    slowMo: 50,
-    devtools: true
+    devtools: true,
+    timeout: 0
   };
-  return process.env.NODE_ENV === 'debug' ? launch : {};
+  return process.env.NODE_ENV === "debug" ? launch : {};
 };
 
 module.exports = {
