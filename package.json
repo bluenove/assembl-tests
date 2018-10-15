@@ -12,6 +12,7 @@
   "scripts": {
     "test": "jest",
     "runinband": "jest --runInBand",
-    "debug": "NODE_ENV=debug yarn test"
+    "debug": "NODE_ENV=debug jest",
+    "debug-runinband": "NODE_ENV=debug jest --runInBand"
   }
 }
