@@ -1,20 +1,27 @@
-const data = require("../data");
-const signIn = require("./signin.test");
-
-describe("logout", () => {
+const data = require('../data');
+const signIn = require('./signin.test');
+describe('assembl logout', () => {
   beforeEach(async () => {
-    jest.setTimeout(100000);
-    signIn();
+    await jest.setTimeout(20000);
+    await signIn();
   });
-  test("I can logout from assembl", async () => {
-    const userAccountDropdown = ".user-account";
-    const bodyInput = ".top-post-form .public-DraftEditor-content";
-    await page.waitForSelector(titleInput);
-    await page.click(titleInput);
-    await page.type(titleInput, "Allez les bleus");
-    await page.click(bodyInput);
-    await page.type(bodyInput, randomMessage);
-    await page.click(submitButton);
-    await expect(page).toMatch(randomMessage);
+  test('I can logout from assembl', async () => {
+    const userAccountDropdown = '#user-dropdown';
+    const logoutButton = '#logout-dropdown';
+    const connection = '.connection';
+    let connectionButton;
+    await page.waitForSelector(userAccountDropdown);
+    await page.click(userAccountDropdown);
+    await page.waitForSelector(logoutButton);
+    await page.click(logoutButton);
+    try {
+      await page.waitForSelector(connection);
+      connectionButton = true;
+      console.log('The element appear!');
+    } catch (error) {
+      connectionButton = false;
+      console.log('something went wrong: ' + error);
+    }
+    await expect(connectionButton).toBe(true);
   });
 });
