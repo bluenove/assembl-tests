@@ -3,7 +3,7 @@ E2E Tests to write:
 User:
 - Sign up X
 - Sign in X
-- Sign off
+- Sign off X
 - Profile
 
 Thread:
