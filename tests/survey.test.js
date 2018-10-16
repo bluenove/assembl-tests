@@ -1,11 +1,11 @@
-const signIn = require('./signin.test');
+const signIn = require('../helpers').signin;
 const data = require('../data');
 const { user2 } = data;
 
 describe('Survey actions', () => {
   const surveyDebate = 'http://localhost:6543/testfred';
-  beforeEach(async () => {
-    jest.setTimeout(100000);
+  beforeAll(async () => {
+    jest.setTimeout(30000);
     await signIn(surveyDebate, user2.email, user2.password);
     await page.goto(`${surveyDebate}/debate/survey/theme/VGhlbWF0aWM6Mjg2MA==`);
   });
