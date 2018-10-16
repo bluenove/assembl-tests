@@ -1,7 +1,8 @@
 const data = require('../data');
-const signIn = require('./signin.test');
+const signIn = require('../helpers').signin;
+
 describe('assembl logout', () => {
-  beforeEach(async () => {
+  beforeAll(async () => {
     await jest.setTimeout(20000);
     await signIn();
   });
@@ -17,7 +18,6 @@ describe('assembl logout', () => {
     try {
       await page.waitForSelector(connection);
       connectionButton = true;
-      console.log('The element appear!');
     } catch (error) {
       connectionButton = false;
       console.log('something went wrong: ' + error);
