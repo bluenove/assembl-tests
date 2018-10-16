@@ -2,7 +2,7 @@ const signIn = require('../helpers').signin;
 
 describe('Assembl signin', () => {
   beforeEach(async () => {
-    jest.setTimeout(30000);
+    jest.setTimeout(10000);
   });
 
   test('I can sign in assembl', async () => {

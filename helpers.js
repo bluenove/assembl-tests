@@ -1,12 +1,13 @@
 const data = require('./data');
-const { url, user1 } = data;
+const { url, users } = data;
+const { participant } = users;
 
 module.exports = {
-  async signin(baseUrl, email, password) {
-    baseUrl = url;
-    email = user1.email;
-    password = user1.password;
-
+  async signin(
+    baseUrl = `${url}/e2e-tests-thread`,
+    email = participant.email,
+    password = participant.password
+  ) {
     await page.goto(`${baseUrl}/login`);
     await page.waitForSelector('.login-container');
     await page.click('input[name=identifier]');

@@ -3,9 +3,11 @@ const signIn = require('../helpers').signin;
 
 describe('Create a post on a thread', () => {
   beforeAll(async () => {
-    jest.setTimeout(100000);
+    jest.setTimeout(20000);
     await signIn();
-    await page.goto(`${data.url}/debate/thread/theme/SWRlYTozMjA1`);
+    await page.goto(
+      `${data.url}/e2e-tests-thread/debate/thread/theme/SWRlYTo0MDAw`
+    );
   });
   const randomId = Math.random() * 10000;
   test('I can create a new top post on a thread', async () => {
@@ -19,6 +21,7 @@ describe('Create a post on a thread', () => {
     await page.click(bodyInput);
     await page.type(bodyInput, randomMessage);
     await page.click(submitButton);
+    await page.waitFor(3000);
     await expect(page).toMatch(randomMessage);
   });
   test('I can answer to a top post', async () => {
