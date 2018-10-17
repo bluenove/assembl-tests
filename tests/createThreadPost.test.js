@@ -14,7 +14,7 @@ describe('Create a post on a thread', () => {
     const titleInput = 'input[name=top-post-title]';
     const bodyInput = '.top-post-form .public-DraftEditor-content';
     const submitButton = '.top-post-form .button-submit';
-    const randomMessage = `Maëstro Kim-pem-bééé #${randomId}`;
+    const randomMessage = `Maëstro Kimpembé #${randomId}`;
     await page.waitForSelector(titleInput);
     await page.click(titleInput);
     await page.type(titleInput, 'Allez les bleus');
