@@ -11,7 +11,7 @@ const user = {
 
 describe('Assembl signup', () => {
   beforeAll(async () => {
-    jest.setTimeout(10000);
+    jest.setTimeout(20000);
     await page.goto(`${data.url}/e2e-tests-thread/signup`);
   });
 
