@@ -5,7 +5,7 @@ describe('Assembl signin', () => {
     jest.setTimeout(20000);
   });
 
-  test('I can sign in assembl', async () => {
+  test('I can sign in on Assembl', async () => {
     await signIn();
     const profileMenu = await page.$eval(
       '#user-dropdown',
