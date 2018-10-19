@@ -1,5 +1,5 @@
-const signIn = require('../helpers').signin;
-const data = require('../data');
+const signIn = require('../../helpers').signin;
+const data = require('../../data');
 const { users, url } = data;
 const { participant } = users;
 
@@ -15,14 +15,13 @@ describe('Survey actions', () => {
     const firstQuestionInput = '.questions-section .public-DraftEditor-content';
     const answerText = `Parceque c'est ainsi, tout simplement. #${randomId}`;
     const submitButton = '.button-submit';
-    const answerBody = '.post-body-content > div > div > p';
     await page.waitForSelector('.dark-title-5');
     await page.waitForSelector(firstQuestionInput);
     await page.click(firstQuestionInput);
     await page.type(firstQuestionInput, answerText);
     await page.waitFor(submitButton);
     await page.click(submitButton);
-    await page.waitForSelector('.showAlert');
+    await page.waitForSelector('.showAlert'); // add additional class for success alert
     await page.waitFor(1500); // replace by a better waiter
     await expect(page).toMatch(answerText);
   });

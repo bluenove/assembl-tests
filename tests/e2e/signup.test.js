@@ -1,5 +1,5 @@
 const faker = require('faker');
-const data = require('../data');
+const data = require('../../data');
 
 const user = {
   email: faker.internet.email(),
@@ -23,7 +23,6 @@ describe('Assembl signup', () => {
 
   test('I can sign up in assembl', async () => {
     await page.waitForSelector('.login-view');
-    await page.screenshot({ path: 'screenshots/signup.png' });
     await page.click('input[name=fullname]');
     await page.type(
       'input[name=fullname]',

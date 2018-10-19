@@ -1,4 +1,4 @@
-const signIn = require('../helpers').signin;
+const signIn = require('../../helpers').signin;
 
 describe('Assembl signin', () => {
   beforeAll(async () => {

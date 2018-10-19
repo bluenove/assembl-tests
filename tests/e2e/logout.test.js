@@ -1,5 +1,5 @@
-const data = require('../data');
-const signIn = require('../helpers').signin;
+const data = require('../../data');
+const signIn = require('../../helpers').signin;
 
 describe('assembl logout', () => {
   beforeAll(async () => {
