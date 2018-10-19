@@ -3,7 +3,7 @@ const signIn = require('../../helpers').signin;
 
 describe('Thread actions', () => {
   beforeAll(async () => {
-    jest.setTimeout(20000);
+    jest.setTimeout(100000);
     await signIn();
     await page.goto(
       `${data.url}/e2e-tests-thread/debate/thread/theme/SWRlYTo0MDAw`

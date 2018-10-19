@@ -3,7 +3,7 @@ const signIn = require('../../helpers').signin;
 
 describe('Assembl logout', () => {
   beforeAll(async () => {
-    await jest.setTimeout(20000);
+    await jest.setTimeout(100000);
     await signIn();
   });
   test('I can logout from assembl', async () => {
