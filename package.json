@@ -11,7 +11,7 @@
   },
   "scripts": {
     "test": "jest",
-    "runinband": "jest --runInBand",
+    "runinband": "jest --runInBand tests/e2e",
     "debug": "NODE_ENV=debug jest",
     "debug-runinband": "NODE_ENV=debug jest --runInBand"
   }
