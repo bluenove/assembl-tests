@@ -2,7 +2,9 @@ const data = require('../../data');
 const signIn = require('../../helpers').signin;
 
 describe('Assembl logout', () => {
+  let page;
   beforeAll(async () => {
+    page = await global.__BROWSER__.newPage();
     await jest.setTimeout(100000);
     await signIn();
   });

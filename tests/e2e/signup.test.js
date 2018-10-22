@@ -10,7 +10,9 @@ const user = {
 };
 
 describe('Assembl signup', () => {
+  let page;
   beforeAll(async () => {
+    page = await global.__BROWSER__.newPage();
     jest.setTimeout(100000);
     await page.goto(`${data.url}/e2e-tests-thread/signup`);
   });

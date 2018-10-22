@@ -2,7 +2,9 @@ const data = require('../../data');
 const signIn = require('../../helpers').signin;
 
 describe('Thread actions', () => {
+  let page;
   beforeAll(async () => {
+    page = await global.__BROWSER__.newPage();
     jest.setTimeout(100000);
     await signIn();
     await page.goto(

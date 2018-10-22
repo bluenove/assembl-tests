@@ -5,7 +5,9 @@ const { participant } = users;
 
 describe('Survey actions', () => {
   const surveyDebate = `${url}/e2e-tests-survey`;
+  let page;
   beforeAll(async () => {
+    page = await global.__BROWSER__.newPage();
     jest.setTimeout(100000);
     await signIn(surveyDebate, participant.email, participant.password);
     await page.goto(`${surveyDebate}/debate/survey/theme/VGhlbWF0aWM6Mzk5OQ==`);

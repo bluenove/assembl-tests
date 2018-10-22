@@ -8,6 +8,8 @@ module.exports = {
     email = participant.email,
     password = participant.password
   ) {
+    let page;
+    page = await global.__BROWSER__.newPage();
     await page.goto(`${baseUrl}/login`);
     await page.waitForSelector('.login-container');
     await page.click('input[name=identifier]');

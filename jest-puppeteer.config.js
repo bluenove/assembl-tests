@@ -4,10 +4,10 @@ const isDebugging = () => {
     devtools: false,
     timeout: 0,
     slowMo: 20,
-    args: ["--start-fullscreen"],
+    args: ['--start-fullscreen'],
     defaultViewport: null
   };
-  return process.env.NODE_ENV === "debug" ? launch : {};
+  return process.env.NODE_ENV === 'debug' ? launch : {};
 };
 
 module.exports = {
