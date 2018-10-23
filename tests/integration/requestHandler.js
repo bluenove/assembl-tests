@@ -1,13 +1,18 @@
 const https = require("https");
+const fetch = require("node-fetch");
 
 module.exports = {
-  httpsRequest(url) {
-    return new Promise(resolve => {
-      return https.get(url, response => {
-        let data = "";
-        response.on("data", _data => (data += _data));
-        response.on("end", () => resolve(data));
-      });
-    });
+  httpRequest(url) {
+    return fetch(url).then(res => res.json());
+  },
+  graphQlQuery(url, query) {
+    return fetch(url, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ query })
+    }).then(res => res.json());
   }
 };

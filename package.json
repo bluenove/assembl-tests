@@ -14,5 +14,8 @@
     "runinband": "jest --runInBand",
     "debug": "NODE_ENV=debug jest",
     "debug-runinband": "NODE_ENV=debug jest --runInBand"
+  },
+  "devDependencies": {
+    "node-fetch": "^2.2.0"
   }
 }

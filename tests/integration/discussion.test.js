@@ -1,14 +1,11 @@
 const config = require("./config");
-const httpsRequest = require("./requestHandler").httpsRequest;
+const httpRequest = require("./requestHandler").httpRequest;
 
-function getDebateData() {
-  const url = config.uri + config.discussionApiUrl + config.discussionId;
-  return httpsRequest(url).then(data => JSON.parse(data));
-}
+const url = `${config.uri}${config.discussionApiUrl}${config.discussionId}`;
 
 describe("Should test the Discussion API", function() {
   it("should return the debate data", () => {
-    return getDebateData().then(data => {
+    return httpRequest(url).then(data => {
       expect(data["@id"]).toBe("local:Discussion/" + config.discussionId);
     });
   });
