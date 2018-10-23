@@ -1,15 +1,19 @@
 const isDebugging = () => {
-  let launch = {
+  let debugLaunch = {
     headless: false,
     devtools: false,
-    timeout: 0,
     slowMo: 20,
     args: ['--start-fullscreen', '--disable-dev-shm-usage'],
     defaultViewport: null
   };
-  return process.env.NODE_ENV === 'debug'
-    ? launch
-    : { args: ['--disabled-dev-shm-usage'] };
+  let regularLaunch = {
+    args: [
+      '--disabled-dev-shm-usage',
+      '--no-sandbox',
+      '--disable-setuid-sandbox'
+    ]
+  };
+  return process.env.NODE_ENV === 'debug' ? debugLaunch : regularLaunch;
 };
 
 module.exports = {
