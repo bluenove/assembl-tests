@@ -8,7 +8,8 @@ module.exports = {
     email = participant.email,
     password = participant.password
   ) {
-    await page.goto(`${baseUrl}/login`);
+    await page.goto(`${baseUrl}/login`, { timeout: 0});
+    page.waitForNavigation({ timeout: 0 });
     await page.waitForSelector('.login-container');
     await page.click('input[name=identifier]');
     await page.type('input[name=identifier]', email);
@@ -16,6 +17,7 @@ module.exports = {
     await page.type('input[name=password]', password);
     await page.click("button[name='login']");
     // check if the profile menu is visible
+    page.waitForNavigation({ timeout: 0 });
     await page.waitForSelector('.user-account');
   }
 };

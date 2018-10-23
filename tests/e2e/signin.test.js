@@ -1,11 +1,11 @@
-const signIn = require('../helpers').signin;
+const signIn = require('../../helpers').signin;
 
 describe('Assembl signin', () => {
   beforeAll(async () => {
-    jest.setTimeout(20000);
+    jest.setTimeout(100000);
   });
 
-  test('I can sign in assembl', async () => {
+  test('I can sign in on Assembl', async () => {
     await signIn();
     const profileMenu = await page.$eval(
       '#user-dropdown',

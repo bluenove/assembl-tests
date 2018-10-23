@@ -1,9 +1,9 @@
-const data = require('../data');
-const signIn = require('../helpers').signin;
+const data = require('../../data');
+const signIn = require('../../helpers').signin;
 
-describe('assembl logout', () => {
+describe('Assembl logout', () => {
   beforeAll(async () => {
-    await jest.setTimeout(20000);
+    await jest.setTimeout(100000);
     await signIn();
   });
   test('I can logout from assembl', async () => {

@@ -1,9 +1,9 @@
-const data = require('../data');
-const signIn = require('../helpers').signin;
+const data = require('../../data');
+const signIn = require('../../helpers').signin;
 
-describe('Create a post on a thread', () => {
+describe('Thread actions', () => {
   beforeAll(async () => {
-    jest.setTimeout(20000);
+    jest.setTimeout(100000);
     await signIn();
     await page.goto(
       `${data.url}/e2e-tests-thread/debate/thread/theme/SWRlYTo0MDAw`
