@@ -8,8 +8,16 @@ module.exports = {
     email = participant.email,
     password = participant.password
   ) {
-    await page.goto(`${baseUrl}/login`, { timeout: 0});
+    await page.goto(`${baseUrl}/login`, { timeout: 0 });
+    await page.screenshot({
+      fullPage: true,
+      path: './screenshots/test-screenshot.png'
+    });
     page.waitForNavigation({ timeout: 0 });
+    await page.screenshot({
+      fullPage: true,
+      path: './screenshots/test-screenshot2.png'
+    });
     await page.waitForSelector('.login-container');
     await page.click('input[name=identifier]');
     await page.type('input[name=identifier]', email);
