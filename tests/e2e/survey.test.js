@@ -1,14 +1,14 @@
 const signIn = require('../../helpers').signin;
 const data = require('../../data');
-const { users, url } = data;
+const { users, url, surveyTest } = data;
 const { participant } = users;
 
 describe('Survey actions', () => {
-  const surveyDebate = `${url}/e2e-tests-survey`;
+  const surveyDebate = `${url}/${surveyTest.slug}`;
   beforeAll(async () => {
     jest.setTimeout(100000);
     await signIn(surveyDebate, participant.email, participant.password);
-    await page.goto(`${surveyDebate}/debate/survey/theme/VGhlbWF0aWM6Mzk5OQ==`);
+    await page.goto(`${surveyDebate}/debate/survey/theme/${surveyTest.ideaId}`);
   });
   const randomId = Math.random() * 10000;
   test('I can answer to the first question of a thematic', async () => {

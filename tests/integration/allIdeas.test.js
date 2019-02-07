@@ -1,4 +1,4 @@
-const config = require("./config");
+const data = require('../../data')
 const graphQlQuery = require("./requestHandler").graphQlQuery;
 
 const query = `
@@ -9,13 +9,13 @@ const query = `
       }
     }
   }`;
-const url = `${config.uri}${config.slug}/graphql`;
+const url = `${data.url}${data.threadTest.slug}/graphql`;
 
 describe("Should test the allIdeas query", function() {
   it("should return all ideas", () => {
     const expectedData = {
       data: {
-        ideas: [{ id: "SWRlYTo0MDAw" }]
+        ideas: [{ id: data.threadTest.ideaId }]
       }
     };
     return expect(graphQlQuery(url, query)).resolves.toEqual(expectedData);

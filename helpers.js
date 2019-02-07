@@ -1,10 +1,10 @@
 const data = require('./data');
-const { url, users } = data;
+const { url, users, threadTest} = data;
 const { participant } = users;
 
 module.exports = {
   async signin(
-    baseUrl = `${url}/e2e-tests-thread`,
+    baseUrl = `${url}/${threadTest.slug}`,
     email = participant.email,
     password = participant.password
   ) {

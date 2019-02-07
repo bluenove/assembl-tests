@@ -6,7 +6,7 @@ describe('Thread actions', () => {
     jest.setTimeout(100000);
     await signIn();
     await page.goto(
-      `${data.url}/e2e-tests-thread/debate/thread/theme/SWRlYTo0MDAw`
+      `${data.url}/${data.threadTest.slug}/debate/thread/theme/${data.threadTest.ideaId}`
     );
   });
   const randomId = Math.random() * 10000;
